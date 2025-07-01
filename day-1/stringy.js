@@ -283,11 +283,17 @@ E: N/a
 */
 function sortDescending(stringOne, stringTwo) {
   // YOUR CODE BELOW HERE //
+  // check if string one is alphabetically lower than string two
   if (stringOne > stringTwo) {
+    // return 1
     return 1
+    // check if string two is alphabetically lower than string one
   } else if (stringTwo > stringOne) {
+    // return -1
     return -1
+    // otherwise return 0 if none of the above are true
   } else {
+    // return 0
     return 0
   }
   // YOUR CODE ABOVE HERE //
