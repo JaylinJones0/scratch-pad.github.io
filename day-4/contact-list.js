@@ -72,7 +72,14 @@ findContact: function(fullName) {
   }
     }
   },
-  printAllContactNames: function()
+  printAllContactNames: function(){
+    let fullNames = []
+    for (let i = 0; i < contacts.length; i++) {
+      fullNames.push(`${contacts[i].nameFirst} ${contacts[i].nameLast}`)
+    }
+    let joinFullNames = fullNames.join('\n')
+    return joinFullNames
+  }
 }
 }
 // YOUR CODE GOES ABOVE HERE //
