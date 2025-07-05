@@ -172,7 +172,7 @@ E: N/a
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   let valueArr = Object.values(object)
-  for (let i = valueArr.length - 1; i > 0; i--) {
+  for (let i = valueArr.length - 1; i >= 0; i--) {
 console.log(valueArr[i])
   }
   // YOUR CODE ABOVE HERE //

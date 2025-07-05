@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { result } = require("lodash");
+
 /**
  * IN CLASS EXERCISE: TYPE
  */
@@ -16,7 +18,14 @@
  */
 function isArray(value) {
   // YOUR CODE BELOW HERE //
-
+  // check if value is an array
+if (Array.isArray(value)) {
+  // return true 
+  return true;
+  // otherwise return false
+} else {
+  return false
+}
   // YOUR CODE ABOVE HERE //
 }
 
@@ -33,7 +42,11 @@ function isArray(value) {
  */
 function isObject(value) {
   // YOUR CODE BELOW HERE //
-
+if (Object.prototype.toString.call(value) === '[object Object]') {
+  return true;
+} else {
+  return false;
+}
   // YOUR CODE ABOVE HERE //
 }
 
@@ -45,7 +58,11 @@ function isObject(value) {
  */
 function isCollection(value) {
   // YOUR CODE BELOW HERE //
-
+if (Array.isArray(value) || Object.prototype.toString.call(value) === '[object Object]') {
+  return true;
+} else {
+  return false;
+}
   // YOUR CODE ABOVE HERE //
 }
 
@@ -70,7 +87,25 @@ function isCollection(value) {
  */
 function typeOf(value) {
   // YOUR CODE BELOW HERE //
-  
+if (typeof value === 'string') {
+  return 'string';
+} else if (Array.isArray(value)) {
+  return 'array';
+} else if (Object.prototype.toString.call(value) === '[object Object]') {
+  return 'object';
+} else if (typeof value  === 'undefined') {
+  return 'undefined';
+} else if (typeof value === 'number') {
+  return 'number';
+} else if (typeof value === 'boolean') {
+  return 'boolean';
+} else if (value === null) {
+  return 'null';
+} else if (typeof value === 'function') {
+  return 'function';
+} else if (Object.prototype.toString.call(value) === '[object Date]') {
+  return 'date';
+}
   // YOUR CODE ABOVE HERE //
 }
 

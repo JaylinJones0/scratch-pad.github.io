@@ -11,9 +11,18 @@
  * return a Function that tests whether a given value is greater than the
  * base.
  */
+
+/*
+I: Create a function with base parameter representing a string or a number
+O: Return a function that tests whether a given value is greater than the base
+C:
+E:
+*/
 function createGreaterThanFilter(base) {
   // YOUR CODE BELOW HERE //
-
+  return function(value) {
+    return value > base;
+  }
   // YOUR CODE ABOVE HERE //
 }
 
@@ -23,9 +32,18 @@ function createGreaterThanFilter(base) {
  * base. (test means return true or false)
  *
  */
+
+/*
+I:  Create a function with base parameter representing a string or a number
+O: Return a function that tests whether a given value is less than the base
+C:
+E:
+*/
 function createLessThanFilter(base) {
   // YOUR CODE BELOW HERE //
-
+return function(value) {
+  return value < base;
+}
   // YOUR CODE ABOVE HERE //
 }
 
@@ -36,9 +54,20 @@ function createLessThanFilter(base) {
  *
  * This function needs to be case insensitive.
  */
+
+/*
+I: Create a function that takes startsWith as a parameter representing a single character
+O: Return a function that tests whether a given string starts with the startsWith character
+C:
+E:
+*/
 function createStartsWithFilter(startsWith) {
   // YOUR CODE BELOW HERE //
-
+return function(string) {
+let fixedString = string[0].toLowerCase();
+let fixedChar = startsWith.toLowerCase();
+  return fixedString === fixedChar
+  }
   // YOUR CODE ABOVE HERE //
 }
 
@@ -51,7 +80,11 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
   // YOUR CODE BELOW HERE //
-
+  return function(string) {
+    let fixedString = string[string.length - 1].toLowerCase();
+    let fixedChar = endsWith.toLowerCase();
+      return fixedString === fixedChar
+      }
   // YOUR CODE ABOVE HERE //
 }
 
@@ -64,7 +97,11 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
   // YOUR CODE BELOW HERE //
-
+let stringsMod = [];
+for (let i = 0; i < strings.length; i++) {
+  stringsMod.push(modify(strings[i]))
+}
+  return stringsMod
   // YOUR CODE ABOVE HERE //
 }
 
@@ -79,7 +116,15 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
   // YOUR CODE BELOW HERE //
-  
+  let testResults = []
+  for (let i = 0; i < strings.length; i++) {
+  testResults.push(test(strings[i]))
+  }
+  if (testResults.includes(false)) {
+    return false
+  } else {
+    return true
+  }
   // YOUR CODE ABOVE HERE //
 }
 

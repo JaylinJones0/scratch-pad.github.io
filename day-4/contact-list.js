@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { indexOf } = require("lodash");
+
 /**
  * 4: Contact List // Contacts
  *
@@ -33,9 +35,12 @@
  *          new-line character added after it!
  */
 
-// YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-  
+  let contact = {};
+  contact.id = id;
+  contact.nameFirst = nameFirst;
+  contact.nameLast = nameLast;
+  return contact;
 }
 
 function makeContactList() {
@@ -46,10 +51,30 @@ function makeContactList() {
 
   return {
     // we implemented the length api for you //
-
-  };
+length: function() {
+  return contacts.length;
+},
+addContact: function(contact) {
+return contacts.push(contact);
+},
+findContact: function(fullName) {
+  let splitName = fullName.split(' ')
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].nameFirst === splitName[0] && contacts[i].nameLast === splitName[1]){
+      return contacts[i];
+    }
+  }
+  },
+  removeContact: function(contact) {
+    for(let i = 0; i < contacts.length; i++){
+  if (contact === contacts[i]) {
+    contacts.splice(contacts[i], 1)
+  }
+    }
+  },
+  printAllContactNames: function()
 }
-
+}
 // YOUR CODE GOES ABOVE HERE //
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
